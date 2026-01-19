@@ -1,39 +1,36 @@
-import { motion } from 'framer-motion';
-// import ecom from '../assets/qubit.png';
-// import blackstoriez from '../assets/blackstoriez.png';
-// import talkio from '../assets/talkio.png';
+import { motion, Variants } from 'framer-motion';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { projects } from '../data/portfolio';
 
 const Projects = () => {
-  const projects = [
-    {
-      id: 1,
-      title: "E-commerce [ QUBIT ]",
-      description: "A full-stack e-commerce platform built with the MERN stack. Features include user authentication, product catalog, shopping cart, payment integration, and order management. Implements responsive design and modern UI/UX principles.",
-    //   image: ecom,
-      github: "https://github.com/Nived11/E-COMMERCE-QUBIT-",
-      reverse: false
-    },
-    {
-      id: 2,
-      title: "Talkio – Real-Time Chat Application",
-      description: "Talkio is a real-time chat application developed using React, Node.js, Express, and Socket.io. It enables users to communicate instantly through a clean and responsive interface. The app supports live messaging, smooth interactions, and provides a seamless chatting experience with efficient message delivery.",
-    //   image: talkio,
-      github: "https://github.com/Nived11/TalkiO",
-      reverse: true
-    },
-    {
-      id: 3,
-      title: "Black Storieez – Event Showcase",
-      description: "A creative event booking and photo showcase website built using React. Features include categorized reels and image galleries for functions like weddings and photoshoots, with a smooth and immersive UI experience.",
-    //   image: blackstoriez,
-      github: "https://github.com/Nived11/Black-Storieez",
-      reverse: false
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      }
     }
-  ];
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
 
   return (
-    <section id="projects" className="min-h-screen w-full py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section id="projects" className="min-h-screen w-full py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+       {/* Background Ambience */}
+      <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary/5 blur-[100px] rounded-full opacity-20"></div>
+          <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-white/5 blur-[100px] rounded-full opacity-10"></div>
+      </div>
+
+      <div className="container mx-auto max-w-7xl relative z-10">
         
         {/* Section Header */}
         <motion.div
@@ -43,81 +40,98 @@ const Projects = () => {
           viewport={{ once: false, amount: 0.3 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl sm:text-5xl font-bold text-white font-chakra">
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white font-oxanium tracking-widest uppercase">
             Projects
           </h1>
+          <p className="mt-4 text-gray-400 font-oxanium tracking-wide">
+             Latest works & contributions
+          </p>
         </motion.div>
 
-        {/* Projects List */}
-        <div className="space-y-12 lg:space-y-16">
+        {/* Projects Grid */}
+        <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.2 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+        >
           {projects.map((project) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, x: project.reverse ? 100 : -100 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1 }}
-              viewport={{ once: false, amount: 0.2 }}
-              className={`flex flex-col ${project.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-6 lg:gap-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-300`}
-            >
-              
-              {/* Project Image */}
-              <div className="lg:w-1/2 flex items-center justify-center p-4 sm:p-6 lg:p-8">
-                <motion.img
-                //   src={project.image}
-                  alt={project.title}
-                  loading="lazy"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                  className={`w-full max-w-full h-auto rounded-xl shadow-lg object-contain ${project.id === 3 ? 'border border-white/10' : ''}`}
-                />
-              </div>
-
-              {/* Project Details */}
-              <div className="lg:w-1/2 p-6 lg:p-8 xl:p-10 flex flex-col justify-center">
-                <motion.h2
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  viewport={{ once: false }}
-                  className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4 font-chakra"
-                >
-                  {project.title}
-                </motion.h2>
-
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  viewport={{ once: false }}
-                  className="text-gray-300 font-oxanium leading-relaxed mb-6 text-sm sm:text-base"
-                >
-                  {project.description}
-                </motion.p>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
-                  viewport={{ once: false }}
-                  className="flex flex-col sm:flex-row sm:items-center gap-2 text-gray-400 font-oxanium text-sm"
-                >
-                  <span className="font-semibold whitespace-nowrap">GitHub:</span>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:text-primary/80 hover:underline transition-colors break-all"
-                  >
-                    {project.github}
-                  </a>
-                </motion.div>
-              </div>
-            </motion.div>
+            <ProjectCard key={project.id} project={project} variants={itemVariants} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 };
+
+// Use variants passed from parent
+const ProjectCard = ({ project, variants }: { project: any, variants: Variants }) => {
+    return (
+        <motion.div
+            variants={variants}
+            className="group relative flex flex-col bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 hover:shadow-xl transition-all duration-300 h-full"
+        >
+            {/* Image Area - Click to Visit Live */}
+            <a 
+                href={project.live} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="relative h-48 w-full overflow-hidden cursor-pointer block"
+            >
+                {/* Overlay on hover */}
+                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+                    <span className="flex items-center gap-2 text-white font-oxanium font-bold border border-white/30 px-4 py-2 rounded-full backdrop-blur-sm hover:bg-white/10 transition-colors">
+                        Visit Site <FaExternalLinkAlt className="text-sm" />
+                    </span>
+                </div>
+                
+                {/* Image or Placeholder using gradients since actual images might be missing */}
+                <div className={`w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center`}>
+                     {/* If real image exists, we would use an img tag here. For now, using a stylized placeholder */}
+                     <div className="text-4xl font-bold text-white/5 font-oxanium uppercase tracking-widest select-none">
+                        {project.title.split(' ')[0]}
+                     </div>
+                </div>
+            </a>
+
+            {/* Content Area */}
+            <div className="flex flex-col flex-1 p-5">
+                <div className="flex justify-between items-start gap-4 mb-3">
+                    <h3 className="text-xl font-bold text-white font-oxanium line-clamp-1 group-hover:text-primary transition-colors">
+                        {project.title}
+                    </h3>
+                    
+                    {/* GitHub Icon - Click to Visit Repo */}
+                    <a 
+                        href={project.github} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-gray-400 hover:text-white transition-colors p-1 hover:bg-white/10 rounded-full"
+                        title="View Source Code"
+                    >
+                        <FaGithub size={22} />
+                    </a>
+                </div>
+
+                <p className="text-gray-400 text-sm font-oxanium leading-relaxed line-clamp-3 mb-4 flex-1">
+                    {project.description}
+                </p>
+
+                {/* Tech Stack Pills */}
+                <div className="flex flex-wrap gap-2 mt-auto">
+                    {project.tech.map((tech: string) => (
+                        <span 
+                            key={tech} 
+                            className="text-xs font-medium text-primary/80 bg-primary/10 px-2 py-1 rounded-md border border-primary/20 font-oxanium"
+                        >
+                            {tech}
+                        </span>
+                    ))}
+                </div>
+            </div>
+        </motion.div>
+    )
+}
 
 export default Projects;

@@ -1,11 +1,18 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { FaHome, FaUser, FaCode, FaFolderOpen, FaEnvelope } from 'react-icons/fa';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
 
-  const navItems = ['Home', 'About', 'Skills', 'Projects', 'Contact'];
+  const navItems = [
+    { name: 'Home', icon: <FaHome /> },
+    { name: 'About', icon: <FaUser /> },
+    { name: 'Skills', icon: <FaCode /> },
+    { name: 'Projects', icon: <FaFolderOpen /> },
+    { name: 'Contact', icon: <FaEnvelope /> },
+  ];
 
   // Hide/Show navbar on scroll
   useEffect(() => {
@@ -60,16 +67,17 @@ const Navbar = () => {
         <div className="hidden lg:flex gap-2 absolute left-1/2 transform -translate-x-1/2 px-3 py-2 border rounded-full bg-black/50 backdrop-blur-lg border-primary/30">
           {navItems.map((item, index) => (
             <motion.a
-              key={item}
-              href={`#${item.toLowerCase()}`}
+              key={item.name}
+              href={`#${item.name.toLowerCase()}`}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.4 + index * 0.08 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-4 xl:px-5 py-2 text-sm xl:text-base text-gray-300 hover:text-primary hover:bg-primary/20 rounded-full transition-all duration-300 font-oxanium tracking-wide font-medium"
+              className="flex items-center gap-2 px-4 xl:px-5 py-2 text-sm xl:text-base text-gray-300 hover:text-primary hover:bg-primary/20 rounded-full transition-all duration-300 font-oxanium tracking-wide font-medium group"
             >
-              {item}
+              <span className="text-lg group-hover:text-primary transition-colors">{item.icon}</span>
+              {item.name}
             </motion.a>
           ))}
         </div>
@@ -136,15 +144,16 @@ const Navbar = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
               {navItems.map((item, index) => (
                 <motion.a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
+                  key={item.name}
+                  href={`#${item.name.toLowerCase()}`}
                   onClick={() => setIsOpen(false)}
-                  className="block px-4 py-3 text-center text-gray-300 hover:bg-primary/20 hover:text-primary transition-all duration-300 rounded-2xl font-oxanium font-medium tracking-wide"
+                  className="flex items-center justify-center gap-3 px-4 py-3 text-center text-gray-300 hover:bg-primary/20 hover:text-primary transition-all duration-300 rounded-2xl font-oxanium font-medium tracking-wide"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05, duration: 0.3 }}
                 >
-                  {item}
+                  <span className="text-xl">{item.icon}</span>
+                  {item.name}
                 </motion.a>
               ))}
             </div>
