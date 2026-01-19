@@ -145,7 +145,7 @@ const SkillItem = ({ name, variants, index }: { name: string, variants: Variants
                 </div>
                 
                 
-                <span className="text-[10px] sm:text-xs font-oxanium text-gray-300 group-hover:text-white transition-colors text-center px-1">
+                <span className="text-[9px] sm:text-[10px] font-oxanium text-gray-300 group-hover:text-white transition-colors text-center px-1 leading-none">
                     {name}
                 </span>
             </motion.div>
