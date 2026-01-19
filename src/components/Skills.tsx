@@ -39,9 +39,9 @@ const Skills = () => {
   // Row 5: 2 items (Wing tips)
 
   const butterflyLayout = [
-    ["VS Code", "Git"], // Row 1: 2
+    ["HTML5", "Git"], // Row 1: 2
     ["Postman", "Figma", "Shadcn UI", "CSS3"], // Row 2: 4
-    ["Tailwind CSS", "Framer Motion", "React", "HTML5", "TypeScript", "JavaScript", "Node.js"], // Row 3: 7 (HTML5 Center)
+    ["Tailwind CSS", "Framer Motion", "React", "VS Code", "TypeScript", "JavaScript", "Node.js"], // Row 3: 7 (HTML5 Center)
     ["Express", "MongoDB", "REST APIs", "Cloudinary"], // Row 4: 4
     ["Vercel", "Netlify"] // Row 5: 2
   ];
@@ -81,11 +81,11 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="min-h-screen w-full py-20 px-4 flex flex-col items-center justify-center relative overflow-hidden">
+    <section id="skills" className="min-h-screen w-full py-2 px-4 flex flex-col items-center justify-center relative overflow-hidden">
       
        {/* Background Ambience */}
       <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 blur-[120px] rounded-full opacity-40"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px]  blur-[120px] rounded-full opacity-40"></div>
       </div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
@@ -126,7 +126,7 @@ const Skills = () => {
                         <SkillItem 
                             key={skill} 
                             name={skill} 
-                            isCenter={skill === "JavaScript"} 
+                            isCenter={skill === "VS Code"} 
                             variants={itemVariants}
                         />
                     ))}
@@ -148,8 +148,8 @@ const SkillItem = ({ name, isCenter, variants }: { name: string, isCenter?: bool
             className={`
                 relative group cursor-pointer flex items-center justify-center
                 ${isCenter ? 'w-28 h-28 sm:w-36 sm:h-36' : 'w-16 h-16 sm:w-24 sm:h-24'}
-                rounded-2xl bg-white/5 backdrop-blur-sm border border-white/5
-                hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]
+                rounded-full bg-white/5 backdrop-blur-sm border border-white/5
+                hover:bg-white/2 hover:border-primary/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]
                 transition-all duration-500
             `}
         >
