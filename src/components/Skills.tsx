@@ -21,7 +21,7 @@ const iconMap: Record<string, React.ReactNode> = {
   "Node.js": <SiNodedotjs className="text-[#339933]" />,
   "Express": <SiExpress className="text-[#000000] dark:text-white" />,
   "MongoDB": <SiMongodb className="text-[#47A248]" />,
-  "REST APIs": <div className="text-sm font-bold font-oxanium text-primary">API</div>,
+  "REST APIs": <div className="text-xl font-bold font-oxanium text-primary">API</div>,
   "Git": <SiGit className="text-[#F05032]" />,
   "VS Code": <div className="text-[#007ACC] font-bold text-lg">VS</div>,
   "Postman": <SiPostman className="text-[#FF6C37]" />,
@@ -31,106 +31,77 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 const Skills = () => {
-  // Symmetric Butterfly Pattern (19 items)
-  // Row 1: 2 items (Wing tips)
-  // Row 2: 4 items
-  // Row 3: 7 items (Center HTML5)
-  // Row 4: 4 items
-  // Row 5: 2 items (Wing tips)
-
-  const butterflyLayout = [
-    ["HTML5", "Git"], // Row 1: 2
-    ["Postman", "Figma", "Shadcn UI", "CSS3"], // Row 2: 4
-    ["Tailwind CSS", "Framer Motion", "React", "VS Code", "TypeScript", "JavaScript", "Node.js"], // Row 3: 7 (HTML5 Center)
-    ["Express", "MongoDB", "REST APIs", "Cloudinary"], // Row 4: 4
-    ["Vercel", "Netlify"] // Row 5: 2
-  ];
+    // Flat list of skills for the organic cloud
+    const skillsList = [
+        "HTML5", "CSS3", "JavaScript", "TypeScript", "React", 
+        "Node.js", "Express", "MongoDB", "Tailwind CSS", "Framer Motion",
+        "Git", "VS Code", "Postman", "Figma", "Shadcn UI", 
+        "REST APIs", "Cloudinary", "Vercel", "Netlify"
+    ];
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1
-      }
-    }
-  };
-
-  const rowVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.1,
       }
     }
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, scale: 0 },
+    hidden: { opacity: 0, scale: 0.8, y: 20 },
     visible: { 
       opacity: 1, 
       scale: 1,
+      y: 0,
       transition: { 
         type: "spring",
-        stiffness: 260,
-        damping: 20
+        stiffness: 100,
+        damping: 10
       }
     }
   };
 
   return (
-    <section id="skills" className="min-h-screen w-full py-2 px-4 flex flex-col items-center justify-center relative overflow-hidden">
+    <section id="skills" className="min-h-screen w-full py-20 px-4 flex flex-col items-center justify-center relative overflow-hidden bg-black">
       
        {/* Background Ambience */}
       <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px]  blur-[120px] rounded-full opacity-40"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/20 blur-[150px] rounded-full opacity-30 animate-pulse"></div>
       </div>
 
-      <div className="container mx-auto max-w-7xl relative z-10">
+      <div className="container mx-auto max-w-6xl relative z-10">
         
         {/* Section Header */}
         <motion.div
            initial={{ opacity: 0, y: -50 }}
            whileInView={{ opacity: 1, y: 0 }}
-           transition={{ duration: 1 }}
+           transition={{ duration: 0.8, ease: "easeOut" }}
            viewport={{ once: false, amount: 0.3 }}
-           className="text-center mb-20"
+           className="text-center mb-16 sm:mb-24"
          >
-           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white font-oxanium tracking-widest uppercase">
-             Skills
+           <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold text-white font-oxanium tracking-widest uppercase mb-4">
+             Tech <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400">Stack</span>
            </h1>
+           <div className="h-1 w-24 bg-primary mx-auto rounded-full"></div>
          </motion.div>
 
-        {/* Symmetric Butterfly Grid */}
+        {/* Organic Floating Cloud Grid */}
         <motion.div 
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.2 }}
-            className="flex flex-col items-center gap-6 sm:gap-8"
+            className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-10"
         >
-            {butterflyLayout.map((row, rowIndex) => (
-                <motion.div 
-                    key={rowIndex} 
-                    variants={rowVariants}
-                    className={`
-                        flex justify-center items-center gap-4 sm:gap-8 w-full flex-wrap
-                        ${rowIndex === 0 || rowIndex === 4 ? 'gap-32 sm:gap-64' : ''} 
-                        ${rowIndex === 1 || rowIndex === 3 ? 'gap-12 sm:gap-24' : ''}
-                    `}
-                    // Varying gaps create the "wing" separation effect
-                >
-                    {row.map((skill) => (
-                        <SkillItem 
-                            key={skill} 
-                            name={skill} 
-                            isCenter={skill === "VS Code"} 
-                            variants={itemVariants}
-                        />
-                    ))}
-                </motion.div>
+            {skillsList.map((skill, index) => (
+                <SkillItem 
+                    key={skill} 
+                    name={skill} 
+                    index={index}
+                    variants={itemVariants}
+                />
             ))}
         </motion.div>
 
@@ -139,48 +110,44 @@ const Skills = () => {
   );
 };
 
-const SkillItem = ({ name, isCenter, variants }: { name: string, isCenter?: boolean, variants: Variants }) => {
+const SkillItem = ({ name, variants, index }: { name: string, variants: Variants, index: number }) => {
     const icon = iconMap[name] || <div className="w-full h-full bg-gray-500 rounded-full" />;
+
+    // Generate random floating params based on index to avoid sync
+    const randomDuration = 3 + (index % 3); 
+    const randomDelay = index * 0.1;
 
     return (
         <motion.div
             variants={variants}
-            className={`
-                relative group cursor-pointer flex items-center justify-center
-                ${isCenter ? 'w-28 h-28 sm:w-36 sm:h-36' : 'w-16 h-16 sm:w-24 sm:h-24'}
-                rounded-full bg-white/5 backdrop-blur-sm border border-white/5
-                hover:bg-white/2 hover:border-primary/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]
-                transition-all duration-500
-            `}
+            className="relative group cursor-pointer"
         >
              <motion.div
                 animate={{ 
-                    y: [0, -6, 0],
+                    y: [0, -10, 0],
                 }}
                 transition={{
-                    duration: 3 + Math.random(), 
+                    duration: randomDuration, 
                     repeat: Infinity,
                     ease: "easeInOut",
-                    delay: Math.random() * 2
+                    delay: randomDelay
                 }}
                 className={`
-                    w-full h-full flex items-center justify-center p-3
+                    w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 
+                    bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl
+                    flex flex-col items-center justify-center gap-3
+                    group-hover:bg-white/10 group-hover:border-primary/50 group-hover:shadow-[0_0_30px_rgba(37,149,102,0.3)]
+                    transition-all duration-300
                 `}
             >
-                <div className={`
-                    ${isCenter ? 'text-6xl sm:text-7xl' : 'text-3xl sm:text-5xl'}
-                    transition-transform duration-300 group-hover:scale-110 drop-shadow-md
-                `}>
+                <div className="text-4xl sm:text-5xl md:text-6xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 drop-shadow-lg">
                     {icon}
                 </div>
-            </motion.div>
-            
-            {/* Tooltip Name */}
-            <div className="absolute -bottom-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-20 pointer-events-none">
-                <span className="text-white/80 font-oxanium text-sm bg-black/80 px-3 py-1 rounded-full border border-white/10 backdrop-blur-md">
+                
+                <span className="text-xs sm:text-sm font-oxanium text-gray-400 group-hover:text-white transition-colors">
                     {name}
                 </span>
-            </div>
+            </motion.div>
         </motion.div>
     );
 };
