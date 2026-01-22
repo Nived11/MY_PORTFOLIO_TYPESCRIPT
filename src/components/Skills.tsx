@@ -44,7 +44,7 @@ const Skills = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.03,
+        staggerChildren: 0,
       }
     }
   };
@@ -54,7 +54,7 @@ const Skills = () => {
     visible: { 
       opacity: 1,
       transition: { 
-        duration: 0.2,
+        duration: 0.15,
         ease: "easeOut"
       }
     }
@@ -89,7 +89,7 @@ const Skills = () => {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.2 }}
             className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8"
         >
             {skillsList.map((skill) => (
