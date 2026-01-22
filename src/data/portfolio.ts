@@ -50,7 +50,7 @@ export const projects = [
     live: "https://neurospacex.netlify.app/",
     image: Neurospace
   },{
-    id: 3,
+    id: 4,
     title: "Something For You - Birthday Wish Website",
     description: "Birthday wish website featuring a 3D character on the home page to create a fun and interactive greeting experience.",
     tech: ["React", "TypeScript", "Node.js", "MongoDB", "Express", "Tailwind CSS","Framer Motion", "Three.js",],
@@ -58,7 +58,7 @@ export const projects = [
     live: "https://somethng.netlify.app/",
     image: somethingforu
   },{
-    id: 4,
+    id: 5,
     title: "Exclusive E-Commerce UI Design",
     description: "Modern e-commerce platform UI design focused on clean layouts, smooth navigation, and a premium shopping experience.",
     tech: ["React", "TypeScript", "Tailwind CSS",],
@@ -68,7 +68,7 @@ export const projects = [
   },
   
   {
-    id: 5,
+    id: 6,
     title: "BlackStorieez - Photo Showcase & Event Booking",
     description: "Photo showcase and event booking website featuring organized galleries and smooth animations for weddings and events.",
     tech: ["HTML5","React","CSS3","JavaScript",],
@@ -77,7 +77,7 @@ export const projects = [
     image: Blackstorieez
   },
   {
-    id: 6,
+    id: 7,
     title: "Listify - Task Management App",
     description: "Task management application that allows users to add, edit, update, and delete daily tasks using simple CRUD operations.",
     tech: ["React", "CSS3", "JavaScript", "Node.js", "MongoDB", "Express"],
