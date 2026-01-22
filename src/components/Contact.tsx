@@ -49,7 +49,7 @@ const Contact = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.2,
         delayChildren: 0
       }
     }
@@ -60,7 +60,7 @@ const Contact = () => {
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 0.3, ease: "easeOut" }
+      transition: { duration: 0.6, ease: "easeOut" }
     }
   };
 
@@ -69,7 +69,7 @@ const Contact = () => {
     visible: { 
       opacity: 1, 
       x: 0,
-       transition: { duration: 0.4, ease: "easeOut" }
+       transition: { duration: 0.7, ease: "easeOut" }
     }
   };
 
@@ -78,12 +78,12 @@ const Contact = () => {
     visible: { 
       opacity: 1, 
       x: 0,
-       transition: { duration: 0.4, ease: "easeOut" }
+       transition: { duration: 0.7, ease: "easeOut" }
     }
   };
 
   return (
-    <section id="contact" className="min-h-screen w-full py-20 px-4 sm:px-6 lg:px-8 overflow-hidden relative">
+    <section id="contact" className="w-full py-20 px-4 sm:px-6 lg:px-8 overflow-hidden relative">
        {/* Background Ambience */}
       <div className="absolute inset-0 pointer-events-none">
           <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full opacity-20"></div>
@@ -95,7 +95,7 @@ const Contact = () => {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.05 }}
         >
             {/* Section Header */}
             <motion.div

@@ -44,7 +44,7 @@ const Skills = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0,
+        staggerChildren: 0.08,
       }
     }
   };
@@ -54,7 +54,7 @@ const Skills = () => {
     visible: { 
       opacity: 1,
       transition: { 
-        duration: 0.15,
+        duration: 0.5,
         ease: "easeOut"
       }
     }
@@ -74,8 +74,8 @@ const Skills = () => {
         <motion.div
            initial={{ opacity: 0, y: -20 }}
            whileInView={{ opacity: 1, y: 0 }}
-           transition={{ duration: 0.4, ease: "easeOut" }}
-           viewport={{ once: false, amount: 0.3 }}
+           transition={{ duration: 0.7, ease: "easeOut" }}
+           viewport={{ once: false, amount: 0.1 }}
            className="text-center mb-16 sm:mb-20"
          >
            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white font-oxanium tracking-widest uppercase mb-4">

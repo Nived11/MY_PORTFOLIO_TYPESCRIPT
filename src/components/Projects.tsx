@@ -9,7 +9,7 @@ const Projects = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.06,
+        staggerChildren: 0.15,
       },
     },
   };
@@ -19,14 +19,14 @@ const Projects = () => {
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.25, ease: "easeOut" },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
   return (
     <section
       id="projects"
-      className="min-h-screen w-full py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+      className="w-full py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
     >
       {/* Background Ambience */}
       <div className="absolute inset-0 pointer-events-none">
@@ -39,8 +39,8 @@ const Projects = () => {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.05 }}
           className="text-center mb-16"
         >
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white font-oxanium tracking-widest uppercase">
@@ -56,7 +56,7 @@ const Projects = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.05 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
         >
           {projects.map((project) => (
@@ -125,7 +125,7 @@ const ProjectCard = ({
       {/* Content Area */}
       <div className="flex flex-col flex-1 p-5">
         <div className="flex justify-between items-start gap-4 mb-3">
-          <h3 className="text-xl font-bold text-white font-oxanium line-clamp-1 group-hover:text-primary transition-colors">
+          <h3 className="text-xl font-bold text-white font-oxanium line-clamp-1 break-words group-hover:text-primary transition-colors">
             {project.title}
           </h3>
 

@@ -14,7 +14,7 @@ const About = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.2,
         delayChildren: 0
       }
     }
@@ -24,7 +24,7 @@ const About = () => {
     hidden: { opacity: 0 },
     visible: { 
       opacity: 1,
-      transition: { duration: 0.2, ease: "easeOut" }
+      transition: { duration: 0.8, ease: "easeOut" }
     }
   };
 
@@ -45,7 +45,7 @@ const About = () => {
                 <motion.h1 
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: false, amount: 0.3 }}
+                    viewport={{ once: false, amount: 0.1 }}
                     variants={containerVariants}
                     className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white font-oxanium tracking-widest uppercase leading-tight"
                 >
@@ -63,8 +63,8 @@ const About = () => {
                 <motion.p 
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    viewport={{ once: false, amount: 0.3 }}
-                    transition={{ duration: 0.2, ease: "easeOut" }}
+                    viewport={{ once: false, amount: 0.1 }}
+                    transition={{ duration: 0.9, ease: "easeOut" }}
                     className="text-gray-400 font-oxanium text-lg max-w-lg mx-auto lg:mx-0"
                 >
                     Turning ideas into reality through clean code and modern design.
@@ -74,7 +74,7 @@ const About = () => {
                 <motion.div 
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: false, amount: 0.3 }}
+                    viewport={{ once: false, amount: 0.1 }}
                     variants={containerVariants}
                     className="flex flex-wrap justify-center lg:justify-start gap-8 pt-4"
                 >
@@ -100,8 +100,8 @@ const About = () => {
             <motion.div
                initial={{ opacity: 0 }}
                whileInView={{ opacity: 1 }}
-               transition={{ duration: 0.3, ease: "easeOut" }}
-               viewport={{ once: false, amount: 0.3 }}
+               transition={{ duration: 0.9, ease: "easeOut" }}
+               viewport={{ once: false, amount: 0.1 }}
                className="relative"
             >
                 <div className="absolute -inset-1 bg-gradient-to-r from-primary to-green-900 rounded-2xl blur opacity-20"></div>
@@ -114,7 +114,7 @@ const About = () => {
                     <motion.div 
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: false, amount: 0.3 }}
+                        viewport={{ once: false, amount: 0.1 }}
                         variants={containerVariants}
                         className="space-y-6 text-gray-300 font-oxanium leading-relaxed text-justify"
                     >
