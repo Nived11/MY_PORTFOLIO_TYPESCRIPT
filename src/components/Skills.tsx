@@ -117,7 +117,7 @@ const SkillItem = ({ name, variants }: { name: string, variants: Variants }) => 
              <div
                 className={`
                     w-20 h-20 sm:w-24 sm:h-24
-                    bg-white/5 backdrop-blur-sm md:backdrop-blur-xl border border-white/10 rounded-full
+                    bg-white/10 border border-white/10 rounded-full
                     flex flex-col items-center justify-center gap-2
                     group-hover:bg-white/10 group-hover:border-primary/50 group-hover:shadow-[0_0_25px_rgba(37,149,102,0.4)]
                     transition-all duration-300
