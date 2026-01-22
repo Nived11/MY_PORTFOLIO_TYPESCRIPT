@@ -1,11 +1,11 @@
 export const personalInfo = {
-  name: "Your Name",
+  name: "Nived",
   title: "MERN Stack Developer",
   email: "your.email@example.com",
-  github: "https://github.com/yourusername",
-  linkedin: "https://linkedin.com/in/yourusername",
-  whatsapp: "https://wa.me/yournumber",
-  location: "Narnaund, Haryana, India"
+  github: "https://github.com/Nived11",
+  linkedin: "www.linkedin.com/in/nived11",
+  whatsapp: "https://wa.me/9539106813",
+  location: "Calicut, Kerala, India"
 };
 
 export const skills = {
