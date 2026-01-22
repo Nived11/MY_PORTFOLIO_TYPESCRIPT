@@ -1,22 +1,31 @@
 import { motion, Variants } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
-import emailjs from 'emailjs-com';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { personalInfo } from '../data/portfolio';
+import { useState } from 'react';
 
 const Contact = () => {
-  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
-    emailjs.sendForm(
-      'nived11',
-      'template_z2m5b7f',
-      e.currentTarget,
-      '156D1ZevOJfFfZN3H'
-    ).then(
-      () => {
-        toast.success('Mail sent successfully!', {
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('https://formspree.io/f/mkoodlqo', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        toast.success('Message sent successfully!', {
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: false,
@@ -25,22 +34,24 @@ const Contact = () => {
           draggable: true,
           theme: "dark",
         });
-      },
-      (error: unknown) => {
-        console.error(error);
-        toast.error('Something went wrong!', {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          theme: "dark",
-        });
+        form.reset();
+      } else {
+        throw new Error('Form submission failed');
       }
-    );
-
-    e.currentTarget.reset();
+    } catch (error) {
+      console.error(error);
+      toast.error('Something went wrong! Please try again.', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "dark",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Animation Variants
@@ -119,14 +130,15 @@ const Contact = () => {
                 Send a Message
                 </h2>
 
-                <form onSubmit={sendEmail} className="space-y-4 sm:space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 <div>
                     <input
                     type="text"
                     name="name"
                     placeholder="Your Name"
                     required
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all font-oxanium"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all font-oxanium disabled:opacity-50"
                     />
                 </div>
 
@@ -136,7 +148,8 @@ const Contact = () => {
                     name="email"
                     placeholder="Your Email"
                     required
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all font-oxanium"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all font-oxanium disabled:opacity-50"
                     />
                 </div>
 
@@ -146,7 +159,8 @@ const Contact = () => {
                     name="subject"
                     placeholder="Subject"
                     required
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all font-oxanium"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all font-oxanium disabled:opacity-50"
                     />
                 </div>
 
@@ -156,17 +170,19 @@ const Contact = () => {
                     placeholder="Your Message"
                     rows={5}
                     required
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all resize-none font-oxanium"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all resize-none font-oxanium disabled:opacity-50"
                     ></textarea>
                 </div>
 
                 <motion.button
                     type="submit"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full py-3 bg-primary text-black font-bold rounded-xl hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/20 font-oxanium uppercase tracking-wide"
+                    disabled={isSubmitting}
+                    whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                    whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                    className="w-full py-3 bg-primary text-black font-bold rounded-xl hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/20 font-oxanium uppercase tracking-wide disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                    Send Message
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                 </motion.button>
                 </form>
             </motion.div>
