@@ -21,7 +21,7 @@ import Blackstorieez from "../assets/BlackStorieez.png"
 import Exclusive from "../assets/exclusive.png"
 import somethingforu from "../assets/somethingforu.png"
 import Listify from "../assets/listify.png"
-import Neurospace from "../assets/neurospace.png"
+import Neurospace from "../assets/Neurospace.png"
 
 export const projects = [
   {
