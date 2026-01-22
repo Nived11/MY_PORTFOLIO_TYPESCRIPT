@@ -49,36 +49,36 @@ const Contact = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3, // Stagger section elements
-        delayChildren: 0.1
+        staggerChildren: 0.1,
+        delayChildren: 0
       }
     }
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 15 },
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" }
+      transition: { duration: 0.3, ease: "easeOut" }
     }
   };
 
   const slideLeftVariants: Variants = {
-    hidden: { opacity: 0, x: -50 },
+    hidden: { opacity: 0, x: -20 },
     visible: { 
       opacity: 1, 
       x: 0,
-       transition: { duration: 0.8, ease: "easeOut" }
+       transition: { duration: 0.4, ease: "easeOut" }
     }
   };
 
   const slideRightVariants: Variants = {
-    hidden: { opacity: 0, x: 50 },
+    hidden: { opacity: 0, x: 20 },
     visible: { 
       opacity: 1, 
       x: 0,
-       transition: { duration: 0.8, ease: "easeOut" }
+       transition: { duration: 0.4, ease: "easeOut" }
     }
   };
 
@@ -113,7 +113,7 @@ const Contact = () => {
             {/* Contact Form */}
             <motion.div
                 variants={slideLeftVariants}
-                className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-2xl w-full"
+                className="bg-white/5 backdrop-blur-sm md:backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-2xl w-full"
             >
                 <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8 font-oxanium">
                 Send a Message
@@ -186,7 +186,7 @@ const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ x: 10, backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
-                className="flex items-center gap-6 p-5 sm:p-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl transition-all group w-full"
+                className="flex items-center gap-6 p-5 sm:p-6 bg-white/5 backdrop-blur-sm md:backdrop-blur-xl border border-white/10 rounded-2xl transition-all group w-full"
                 >
                 <FaWhatsapp className="text-3xl sm:text-4xl text-white group-hover:text-primary transition-colors flex-shrink-0" />
                 <span className="text-white font-bold text-lg sm:text-xl font-oxanium">
@@ -200,7 +200,7 @@ const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ x: 10, backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
-                className="flex items-center gap-6 p-5 sm:p-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl transition-all group w-full"
+                className="flex items-center gap-6 p-5 sm:p-6 bg-white/5 backdrop-blur-sm md:backdrop-blur-xl border border-white/10 rounded-2xl transition-all group w-full"
                 >
                 <FaGithub className="text-3xl sm:text-4xl text-white group-hover:text-primary transition-colors flex-shrink-0" />
                 <span className="text-white font-bold text-lg sm:text-xl font-oxanium">
@@ -214,7 +214,7 @@ const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ x: 10, backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
-                className="flex items-center gap-6 p-5 sm:p-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl transition-all group w-full"
+                className="flex items-center gap-6 p-5 sm:p-6 bg-white/5 backdrop-blur-sm md:backdrop-blur-xl border border-white/10 rounded-2xl transition-all group w-full"
                 >
                 <FaLinkedin className="text-3xl sm:text-4xl text-white group-hover:text-primary transition-colors flex-shrink-0" />
                 <span className="text-white font-bold text-lg sm:text-xl font-oxanium">

@@ -44,21 +44,20 @@ const Skills = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.08,
+        staggerChildren: 0.03,
       }
     }
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, scale: 0.5, y: 20 },
+    hidden: { opacity: 0, scale: 0.8, y: 10 },
     visible: { 
       opacity: 1, 
       scale: 1,
       y: 0,
       transition: { 
-        type: "spring",
-        stiffness: 100,
-        damping: 10
+        duration: 0.3,
+        ease: "easeOut"
       }
     }
   };
@@ -75,9 +74,9 @@ const Skills = () => {
         
         {/* Section Header */}
         <motion.div
-           initial={{ opacity: 0, y: -50 }}
+           initial={{ opacity: 0, y: -20 }}
            whileInView={{ opacity: 1, y: 0 }}
-           transition={{ duration: 0.8, ease: "easeOut" }}
+           transition={{ duration: 0.4, ease: "easeOut" }}
            viewport={{ once: false, amount: 0.3 }}
            className="text-center mb-16 sm:mb-20"
          >
@@ -134,10 +133,10 @@ const SkillItem = ({ name, variants, index }: { name: string, variants: Variants
                 }}
                 className={`
                     w-20 h-20 sm:w-24 sm:h-24
-                    bg-white/5 backdrop-blur-xl border border-white/10 rounded-full
+                    bg-white/5 backdrop-blur-sm md:backdrop-blur-xl border border-white/10 rounded-full
                     flex flex-col items-center justify-center gap-2
                     group-hover:bg-white/10 group-hover:border-primary/50 group-hover:shadow-[0_0_25px_rgba(37,149,102,0.4)]
-                    transition-all duration-300
+                    transition-all duration-300 will-change-transform
                 `}
             >
                 <div className="text-3xl sm:text-4xl transition-transform duration-300 group-hover:scale-110 drop-shadow-lg">

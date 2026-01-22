@@ -8,17 +8,17 @@ const Projects = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.06,
       }
     }
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, scale: 0.95 },
     visible: { 
       opacity: 1, 
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      scale: 1,
+      transition: { duration: 0.25, ease: "easeOut" }
     }
   };
 
@@ -34,9 +34,9 @@ const Projects = () => {
         
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           viewport={{ once: false, amount: 0.3 }}
           className="text-center mb-16"
         >
@@ -70,7 +70,7 @@ const ProjectCard = ({ project, variants }: { project: any, variants: Variants }
     return (
         <motion.div
             variants={variants}
-            className="group relative flex flex-col bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 hover:shadow-xl transition-all duration-300 h-full"
+            className="group relative flex flex-col bg-white/5 backdrop-blur-sm md:backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 hover:shadow-xl transition-all duration-300 h-full"
         >
             {/* Image Area - Click to Visit Live */}
             <a 

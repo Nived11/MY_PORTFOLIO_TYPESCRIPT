@@ -14,18 +14,18 @@ const About = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2, // Smooth stagger effect
-        delayChildren: 0.1
+        staggerChildren: 0.1,
+        delayChildren: 0
       }
     }
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 10 },
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 0.6 }
+      transition: { duration: 0.3, ease: "easeOut" }
     }
   };
 
@@ -42,7 +42,6 @@ const About = () => {
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             
-            {/* Left Side: Headline & Title */}
             <div className="text-center lg:text-left space-y-8">
                 <motion.h1 
                     initial="hidden"
@@ -63,10 +62,10 @@ const About = () => {
                 </motion.h1>
                 
                 <motion.p 
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.3 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
                     className="text-gray-400 font-oxanium text-lg max-w-lg mx-auto lg:mx-0"
                 >
                     Turning ideas into reality through clean code and modern design.
@@ -100,15 +99,15 @@ const About = () => {
 
             {/* Right Side: Bio Card */}
             <motion.div
-               initial={{ opacity: 0, x: 50 }}
+               initial={{ opacity: 0, x: 30 }}
                whileInView={{ opacity: 1, x: 0 }}
-               transition={{ duration: 0.8 }}
+               transition={{ duration: 0.4, ease: "easeOut" }}
                viewport={{ once: false, amount: 0.3 }}
                className="relative"
             >
                 <div className="absolute -inset-1 bg-gradient-to-r from-primary to-green-900 rounded-2xl blur opacity-20"></div>
-                <div className="relative bg-black/40 backdrop-blur-xl border border-white/10 p-8 sm:p-10 rounded-2xl">
-                    <h3 className="text-2xl font-bold text-white font-oxanium mb-6 flex items-center gap-3">
+            <div className="relative bg-black/40 backdrop-blur-md md:backdrop-blur-xl border border-white/10 p-8 sm:p-10 rounded-2xl">
+                <h3 className="text-2xl font-bold text-white font-oxanium mb-6 flex items-center gap-3">
                         <span className="w-2 h-8 bg-primary rounded-full"></span>
                         About Me
                     </h3>
