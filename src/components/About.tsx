@@ -21,11 +21,10 @@ const About = () => {
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 10 },
+    hidden: { opacity: 0 },
     visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.3, ease: "easeOut" }
+      opacity: 1,
+      transition: { duration: 0.2, ease: "easeOut" }
     }
   };
 
@@ -62,10 +61,10 @@ const About = () => {
                 </motion.h1>
                 
                 <motion.p 
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
                     viewport={{ once: false, amount: 0.3 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
                     className="text-gray-400 font-oxanium text-lg max-w-lg mx-auto lg:mx-0"
                 >
                     Turning ideas into reality through clean code and modern design.
@@ -99,9 +98,9 @@ const About = () => {
 
             {/* Right Side: Bio Card */}
             <motion.div
-               initial={{ opacity: 0, x: 30 }}
-               whileInView={{ opacity: 1, x: 0 }}
-               transition={{ duration: 0.4, ease: "easeOut" }}
+               initial={{ opacity: 0 }}
+               whileInView={{ opacity: 1 }}
+               transition={{ duration: 0.3, ease: "easeOut" }}
                viewport={{ once: false, amount: 0.3 }}
                className="relative"
             >
