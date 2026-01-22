@@ -92,20 +92,31 @@ const Hero = () => {
             className="text-center lg:text-left space-y-6"
         >
             <motion.h1
-                initial={{ opacity: 0, width: 0 }}
-                animate={{ opacity: 1, width: '100%' }}
-                transition={{ duration: 1.2, ease: 'easeOut' }}
-                className="text-5xl sm:text-6xl lg:text-7xl text-white overflow-hidden whitespace-nowrap"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ 
+                    duration: 0.6,
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 15
+                }}
+                className="text-5xl sm:text-6xl lg:text-7xl text-white"
                 style={{ fontFamily: 'Iceland, serif' }}
             >
                 Hii,
             </motion.h1>
             
             <motion.h1
-                initial={{ opacity: 0, width: 0 }}
-                animate={{ opacity: 1, width: '100%' }}
-                transition={{ duration: 1.5, delay: 0.5, ease: 'easeOut' }}
-                className="text-5xl sm:text-6xl lg:text-7xl text-white overflow-hidden whitespace-nowrap"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ 
+                    duration: 0.6,
+                    delay: 0.3,
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 15
+                }}
+                className="text-5xl sm:text-6xl lg:text-7xl text-white"
                 style={{ fontFamily: 'Iceland, serif' }}
             >
                 I'm Nived

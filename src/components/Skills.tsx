@@ -92,11 +92,10 @@ const Skills = () => {
             viewport={{ once: false, amount: 0.2 }}
             className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8"
         >
-            {skillsList.map((skill, index) => (
+            {skillsList.map((skill) => (
                 <SkillItem 
                     key={skill} 
                     name={skill} 
-                    index={index}
                     variants={itemVariants}
                 />
             ))}
@@ -107,34 +106,21 @@ const Skills = () => {
   );
 };
 
-const SkillItem = ({ name, variants, index }: { name: string, variants: Variants, index: number }) => {
+const SkillItem = ({ name, variants }: { name: string, variants: Variants }) => {
     const icon = iconMap[name] || <div className="w-full h-full bg-gray-500 rounded-full" />;
-
-    // Generate random floating params based on index to avoid sync
-    const randomDuration = 3 + (index % 3) * 0.5; 
-    const randomDelay = index * 0.1;
 
     return (
         <motion.div
             variants={variants}
             className="relative group cursor-pointer"
         >
-             <motion.div
-                animate={{ 
-                    y: [0, -8, 0],
-                }}
-                transition={{
-                    duration: randomDuration, 
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: randomDelay
-                }}
+             <div
                 className={`
                     w-20 h-20 sm:w-24 sm:h-24
                     bg-white/5 backdrop-blur-sm md:backdrop-blur-xl border border-white/10 rounded-full
                     flex flex-col items-center justify-center gap-2
                     group-hover:bg-white/10 group-hover:border-primary/50 group-hover:shadow-[0_0_25px_rgba(37,149,102,0.4)]
-                    transition-all duration-300 will-change-transform
+                    transition-all duration-300
                 `}
             >
                 <div className="text-3xl sm:text-4xl transition-transform duration-300 group-hover:scale-110 drop-shadow-lg">
@@ -145,7 +131,7 @@ const SkillItem = ({ name, variants, index }: { name: string, variants: Variants
                 <span className="text-[9px] sm:text-[10px] font-oxanium text-gray-300 group-hover:text-white transition-colors text-center px-1 leading-none">
                     {name}
                 </span>
-            </motion.div>
+            </div>
         </motion.div>
     );
 };
