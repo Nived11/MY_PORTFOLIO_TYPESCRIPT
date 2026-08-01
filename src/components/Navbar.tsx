@@ -83,7 +83,7 @@ const Navbar = () => {
         </div>
 
         {/* Resume Button - Right Side */}
-        <motion.button
+        {/* <motion.button
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
@@ -109,7 +109,7 @@ const Navbar = () => {
             />
           </svg>
           <span className="xl:inline">Resume</span>
-        </motion.button>
+        </motion.button> */}
 
         {/* Tablet & Mobile Menu Button */}
         <motion.button

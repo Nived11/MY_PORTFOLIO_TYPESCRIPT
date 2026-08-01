@@ -4,11 +4,13 @@ import {
   SiReact, SiTypescript, SiTailwindcss, SiFramer, SiHtml5, SiCss3, SiJavascript,
   SiNodedotjs, SiExpress, SiMongodb, 
   SiGit, SiPostman, SiVercel, SiNetlify, SiFigma,
-  SiShadcnui
+  SiShadcnui,
+  SiNextdotjs
 } from "react-icons/si";
 
 // Icon mapping
 const iconMap: Record<string, React.ReactNode> = {
+  "Next.js": <SiNextdotjs className="text-white" />,
   "React": <SiReact className="text-[#61DAFB]" />,
   "TypeScript": <SiTypescript className="text-[#3178C6]" />,
   "Tailwind CSS": <SiTailwindcss className="text-[#06B6D4]" />,
@@ -33,7 +35,7 @@ const iconMap: Record<string, React.ReactNode> = {
 const Skills = () => {
     // Flat list of skills for the organic cloud
     const skillsList = [
-        "HTML5", "CSS3", "JavaScript", "TypeScript", "React", 
+        "HTML5", "CSS3", "JavaScript", "TypeScript", "React","Next.js", 
         "Node.js", "Express", "MongoDB", "Tailwind CSS", "Framer Motion",
         "Git", "VS Code", "Postman", "Figma", "Shadcn UI", 
         "REST APIs", "Cloudinary", "Vercel", "Netlify"
