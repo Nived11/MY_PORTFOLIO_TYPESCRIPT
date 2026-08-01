@@ -23,14 +23,35 @@ import somethingforu from "../assets/somethingforu.png"
 import Listify from "../assets/listify.png"
 import Neurospace from "../assets/Neurospace.png"
 import crunch from "../assets/crunch.png"
+import zecser from "../assets/zecser.png"
+import empire from "../assets/empire.png"
 
 export const projects = [
   {
      id: 1,
+    title: "Empireplaza - Food Delivery App",
+    description:
+      " Real-world food delivery and table reservation platform with admin dashboard, JWT authentication, OTP login flow, and restaurant management features.",
+    tech: [
+      "Next.js",
+      "React",
+      "Redux",
+      "Tailwind CSS",
+      "Django REST API",
+      "Framer Motion",
+      "JWT Authentication"
+    ],
+    github: "https://github.com/Nived11/Launch-Soon",
+    live: "https://empire-launch.netlify.app/",
+    image: empire
+  },
+  {
+     id: 2,
     title: "The Crunch - Food Delivery App",
     description:
       "Real-world food delivery and table reservation platform with admin dashboard, JWT authentication, OTP login flow, and restaurant management features.",
     tech: [
+      "Next.js",
       "React",
       "Redux",
       "Tailwind CSS",
@@ -43,7 +64,21 @@ export const projects = [
     image: crunch
   },
   {
-    id: 2,
+     id: 3,
+    title: "Zecser Business llp - Frontend",
+    description:
+      "Frontend of a business website for Zecser Business LLP, showcasing services, team members, and contact information with a responsive design.",
+    tech: [
+      "Next.js",
+      "Redux",
+      "Tailwind CSS",
+    ],
+    github: "",
+    live: "https://www.zecser.com/",
+    image: zecser
+  },
+  {
+    id: 4,
     title: "Find Fortune - Spin & Win",
     description: "Spin & Win web application where users register, spin a fortune wheel, and receive instant rewards with unique codes.",
     tech: ["React","TypeScript", "Node.js", "MongoDB", "Express", "Tailwind CSS"],
@@ -52,7 +87,7 @@ export const projects = [
     image: Findfortune
   },
   {
-    id: 3,
+    id: 5,
     title: "QUBITX - E-commerce website",
     description: "Online electronics shopping website where users can explore products and place orders through a smooth checkout process.",
     tech: ["React", "TypeScript", "Node.js", "MongoDB", "Express", "Tailwind CSS","Razorpay"],
@@ -60,7 +95,7 @@ export const projects = [
     live: "https://qubitx.netlify.app/", 
     image: Qubitx
   }, {
-    id: 4,
+    id: 6,
     title: "Neurospace - Portfolio Demo Template",
     description: "Static portfolio demo website template designed for a web development agency to present design ideas to clients.",
    tech: ["React", "TypeScript", "Tailwind CSS",],
@@ -68,7 +103,7 @@ export const projects = [
     live: "https://neurospacex.netlify.app/",
     image: Neurospace
   },{
-    id: 5,
+    id: 7,
     title: "Something For You - Birthday Wish Website",
     description: "Birthday wish website featuring a 3D character on the home page to create a fun and interactive greeting experience.",
     tech: ["React", "TypeScript", "Node.js", "MongoDB", "Express", "Tailwind CSS","Framer Motion", "Three.js",],
@@ -76,7 +111,7 @@ export const projects = [
     live: "https://somethng.netlify.app/",
     image: somethingforu
   },{
-    id: 6,
+    id: 8,
     title: "Exclusive E-Commerce UI Design",
     description: "Modern e-commerce platform UI design focused on clean layouts, smooth navigation, and a premium shopping experience.",
     tech: ["React", "TypeScript", "Tailwind CSS",],
@@ -86,7 +121,7 @@ export const projects = [
   },
   
   {
-    id: 7,
+    id: 9,
     title: "BlackStorieez - Photo Showcase & Event Booking",
     description: "Photo showcase and event booking website featuring organized galleries and smooth animations for weddings and events.",
     tech: ["HTML5","React","CSS3","JavaScript",],
@@ -95,7 +130,7 @@ export const projects = [
     image: Blackstorieez
   },
   {
-    id: 8,
+    id: 10,
     title: "Listify - Task Management App",
     description: "Task management application that allows users to add, edit, update, and delete daily tasks using simple CRUD operations.",
     tech: ["React", "CSS3", "JavaScript", "Node.js", "MongoDB", "Express"],
